@@ -8,8 +8,8 @@ class GCEDataset(Dataset):
     """
     def __init__(self, path):
         dataset = pd.read_csv(path)
-        self.X = dataset['modified'].to_list()[:10]  # Input sentences (with errors)
-        self.y = dataset['sentence'].to_list()[:10] # Target sentences (corrected)
+        self.X = dataset['modified'].to_list() # Input sentences (with errors)
+        self.y = dataset['sentence'].to_list() # Target sentences (corrected)
 
     def __getitem__(self, index):
         return self.X[index], self.y[index]

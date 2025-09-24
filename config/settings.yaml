@@ -1,10 +1,11 @@
 default:
+  base_model : google/flan-t5-small
   batch_size: 8
-  epoch_num: 5
-  patience: 2
-  n_trials:  1
+  epoch_num: 25
+  patience: 5
+  n_trials:  4
   
   hyperparams:
     decoder_unfreeze: [1, 2]
     encoder_unfreeze: [1, 2]
-    learning_rate: [1e-4, 3e-4]
+    learning_rate: [1e-4, 5e-4, 1e-3]

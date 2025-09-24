@@ -77,8 +77,6 @@ The hyperparameter tuning focused on optimizing the number of encoder and decode
 
 In total, we experimented with 4 different configurations sampled from these search spaces. For each combination, the T5 model was fine-tuned on the training set for up to 10 epochs, applying early stopping to prevent overfitting. During early stopping, after each epoch, we evaluated the model on the early stopping set and computed the cross-entropy loss. If the loss did not decrease for more than 2 consecutive epochs, training was halted early. After training, the model was evaluated on the validation set. The best hyperparameter configuration was selected based on the highest BLEU score achieved on the validation data.
 
-## Evaluation 
-
 
 
 ## Repository Structure

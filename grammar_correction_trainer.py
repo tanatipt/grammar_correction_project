@@ -43,7 +43,7 @@ class GrammarCorrectionTrainer:
         self.epoch_num = settings.epoch_num
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         
-        self.tokeniser = AutoTokenizer.from_pretrained("google/flan-t5-base")
+        self.tokeniser = AutoTokenizer.from_pretrained(settings.base_model)
         
     def create_batch(self,X, y):
         """
@@ -134,7 +134,7 @@ class GrammarCorrectionTrainer:
             learning_rate = trial.suggest_categorical("learning_rate", settings.hyperparams.learning_rate)
             
             # Load the model and set trainable layers
-            model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-base")
+            model = AutoModelForSeq2SeqLM.from_pretrained(settings.base_model)
             model.to(self.device)
             set_trainable_layers(model, n_decoder_unfreeze, n_encoder_unfreeze)
 
